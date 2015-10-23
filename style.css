@@ -1,9 +1,9 @@
 body {
-	background: white;
+	background: black;
 }
 h1	{
 	font-family: helvetica;
-	color: black;
+	color: white;
 }
 #container {
 	text-align: center;
