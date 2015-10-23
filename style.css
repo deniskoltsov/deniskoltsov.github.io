@@ -1,1 +1,10 @@
-style.css
+body {
+	background: white;
+}
+h1	{
+	font-family: helvetica;
+	color: black;
+}
+#container {
+	text-align: center;
+}
