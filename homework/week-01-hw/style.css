@@ -1,0 +1,38 @@
+a {	
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: medium;
+    position: relative;
+    vertical-align: bottom;
+	top: 10px;
+}
+body {
+	text-align: center;
+	font-family: 'myriad pro';
+}
+h1 {font-size: 30px
+    font-family: Arial;
+    color: white;
+}
+h2
+  {font-size: 15px
+    font-family: Arial;
+    color: white;
+    }
+.btn-style{
+  border : solid 2px #e32054;
+  font-size : 16px;
+  color : #ffffff;
+  padding : 6px 20px;
+  background-color : #362c36;
+
+}
+
+.bgSizeCover {
+  height: 900px;
+  background-image: url('me-and-teach.jpg');
+  background-size: cover;
+  border: 2px solid darkgray;
+  color: #000; 
+
