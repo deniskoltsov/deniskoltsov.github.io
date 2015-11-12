@@ -1,3 +1,4 @@
+/*indentation here should be cleaned up*/
 a {	
 	text-decoration: none;
 	font-family: Arial, Helvetica, sans-serif;
@@ -9,23 +10,28 @@ a {
 }
 body {
 	text-align: center;
+  /*i would flesh this out with a fallback font*/
 	font-family: 'myriad pro';
 }
+/*need a semicolon after 30px.  not having will break css file in some browesers*/
 h1 {font-size: 30px
     font-family: Arial;
     color: white;
 }
 h2
+/*need semicolon after 15px*/
   {font-size: 15px
     font-family: Arial;
     color: white;
     }
+/*should have a space after .btn-style and other elements before {*/
 .btn-style{
   border : solid 2px #e32054;
   font-size : 16px;
   color : #ffffff;
   padding : 6px 20px;
   background-color : #362c36;
+  /*extra line here*/
 
 }
 
@@ -36,3 +42,4 @@ h2
   border: 2px solid darkgray;
   color: #000; 
 
+/*need a closing } here or else css file will break*/
