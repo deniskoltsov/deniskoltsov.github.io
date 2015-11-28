@@ -11,6 +11,7 @@ body {
     display: table-cell;
     vertical-align: middle;
 }
+/*missing space after {}*/
 h1 {font-family: Arial;
 	color: black;
 	text-align: center;

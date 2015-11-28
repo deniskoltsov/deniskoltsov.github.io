@@ -1,3 +1,4 @@
+/*is there a background image?*/
 body {
 	background-image: url("../images/background.jpg");
 }
@@ -7,6 +8,7 @@ body {
 	padding: 54px;
 }
 
+/*indentation within h1*/
 h1 {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
@@ -56,6 +58,7 @@ a:hover {
 	color: black;
 }
 
+/*cruft can remove?*/
 .images {
 
 }
