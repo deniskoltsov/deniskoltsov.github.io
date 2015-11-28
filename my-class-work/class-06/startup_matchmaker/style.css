@@ -75,12 +75,14 @@ header {
 	margin-right: 50px;
 	padding: 50px;
 	margin-top: 50px;
+	/*use RGBA to give background an opacity instead of entire element*/
 	opacity: .5;
 }
 
 .button {
 	font-family: "Oswald";
 	display: block;
+	/*indentation inconsistency*/
     height: 40px;
     width: 300px;
     background: yellow;
