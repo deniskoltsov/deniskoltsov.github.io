@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Temperature Converter</title>
+
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+
+
+	<script type="text/javascript" src="js/project.js"></script>
+	<h1>Temperature Converter</h1>
+	
+
+	<div class="main">
+	<input id="f" onkeyup="convert('F')" maxlength="3">
+	<h2>Fahrenheit</h2>
+
+	<input id="c" onkeyup="convert('C')" maxlength="3">
+	<h2>Celsius</h2>
+
+	<button type="button" id="convert" onclick="convertTemp()">Convert</button>
+	</div>
+	
+	<div class="thermometer"> 
+
+	</div>
+	
+</body>
+</html>
