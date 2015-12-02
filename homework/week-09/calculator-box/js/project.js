@@ -1,3 +1,5 @@
+// great job!! only small thing is indentation of the final closing bracket for document ready function should be whole way to left
+
 $(document).ready(function (){
 
 	var total = 0;
