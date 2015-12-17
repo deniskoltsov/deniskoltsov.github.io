@@ -2,53 +2,19 @@ $(document).ready(function (){
 
 	var total = 0;
 
-	$('#a10').click(addTen)
-
-	function addTen () {
-		total += 10
-		$('#out').text(total)
-	}
-
-	$('#a20').click(addTwenty)
-
-	function addTwenty () {
-		total += 20
-		$('#out').text(total)
-	}
-
-	$('#a30').click(addThirty)
-
-	function addThirty () {
-		total += 30
-		$('#out').text(total)
-	}
-
-	$('#n10').click(subtractTen)
-
-	function subtractTen () {
-		total -= 10
-		$('#out').text(total)
-	}
-
-	$('#n20').click(subtractTwenty)
-
-	function subtractTwenty () {
-		total -= 20
-		$('#out').text(total)
-	}
-
-	$('#n30').click(subtractThirty)
-
-	function subtractThirty () {
-		total -= 30
-		$('#out').text(total)
-	}
+	$('.math div').click(function(){
+		var num = $(this).text()
+		num = parseInt(num)
+		total = total + num
+		$('#out').html(total);
+	})
 
 	$('#out').click(reset)
 
 	function reset () {
 		total = 0
 		$('#out').text(total)
+		$('#out').css('background-color', 'white')
 	}
 
 	$('#red').click(turnRed)

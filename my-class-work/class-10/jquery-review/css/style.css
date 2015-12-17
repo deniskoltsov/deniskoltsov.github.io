@@ -1,0 +1,16 @@
+.box {
+	height: 200px;
+	width: 200px;
+	float: left;
+	margin: 20px;
+	text-align: center;
+	color: white;
+}
+
+.darkgray {
+	background-color: darkgray;
+}
+
+.lightgray {
+	background-color: lightgray;
+}
