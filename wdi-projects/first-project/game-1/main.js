@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   // VARS
-  var snd = new Audio('rifle-cut.mp3');
+  var snd = new Audio('sounds/rifle-cut.mp3');
+  var laugh = new Audio('sounds/laugh.mp3');
   var player1 = document.querySelector('#player-1');
   var player2 = document.querySelector('#player-2');
   var players = [player1, player2];
@@ -13,12 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
   var randomProblem;
   var actualAnswer;
   var $currentCircle;
-  var answerArr = [1, 4, 7, 8, 12, 18, 22, 34, 35, 37, 44, 45, 50, 51, 56, 78, 81, 92, 99];
-  var questionArr = ['(2*3)/6', '2+2', '(30/2)-8', '2*2*2', '6*2', '(4*4)+2', '44/2', '100-66', '(35/5)+28', '(6*5)+7', '11*4', '90/2', '(100/4)*2', '(2*15)+(3*7)', '(6*9)+2', '((3*3)*2)+60', '9*9', '200-(100+8)', '((3*3)*9)+9+9'];
+  var answerArr = [1, 4];
+  var questionArr = ['(2*3)/6', '2+2'];
   var question = document.querySelector('#question')
   var container = document.getElementById('container');
   var boxColors = ['#4AD9D9', '#F5A503', '#F2385A', '#36B1BF', '#2E0927', '#A49A87', '#FF974F', '#BEDB39', '#FFE11A', '#004358', '#3498DB'];
 
+  // , 7, 8, 12, 18, 22, 34, 35, 37, 44, 45, 50, 51, 56, 78, 81, 92, 99
+  // , '(30/2)-8', '2*2*2', '6*2', '(4*4)+2', '44/2', '100-66', '(35/5)+28', '(6*5)+7', '11*4', '90/2', '(100/4)*2', '(2*15)+(3*7)', '(6*9)+2', '((3*3)*2)+60', '9*9', '200-(100+8)', '((3*3)*9)+9+9'
   //CALL MAKE CIRCLES
   makeCircles();
 
@@ -85,25 +88,30 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       markAnswerIncorrect();
     }
-    // checkRemainingProblems()
+    checkRemainingProblems();
   }
 
   function checkRemainingProblems () {
     // check length of problems ARRAY
-    // and end game if there are no more problems
-    // if (no more problems) {
-    // endGame();
-    //}
+    //IF NO MORE, RUN ENDGAME
+    if ($('#container').is(':empty')) {
+      endGame();
+    }
   }
 
   function endGame () {
-    // do stuff for end game
-    // compareScore()
-    // declareWinner()
+    // COMPARE PLAYER SCORES AND ALERT WINNER
+    if (player1answers > player2answers) {
+      alert('player 1 wins')
+    } else if (player2answers > player1answers) {
+      alert('player 2 wins')
+    } else if (player1answers == player2answers) {
+      alert('I\'s a tie!')
+    }
   }
 
   function markAnswerCorrect (currentAnswer) {
-    alert('yay')
+    // alert('yay')
     playersAnswers[currentPlayer].push(currentAnswer);
     players[currentPlayer].querySelector('.score').innerHTML = playersAnswers[currentPlayer].length;
     $('h2').remove();
@@ -111,13 +119,17 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function markAnswerIncorrect () {
-    $('.dog').addClass('dog-move')
+    // alert('oops!')
+    $('.dog').addClass('dog-move');
     // SET TIME OUT IS A FUNCTION THAT TAKES 2 ARGUMENTS,
     // ONE IS THE FUNCTION TO RUN, TWO IS THE DELAY
     setTimeout(function removeDog () {
       $('.dog').removeClass('dog-move')
+
     }, 2000)
-    alert('You missed!');
+    laugh.play();
+    laugh.currentTime = 0;
+    // alert('You missed!');
     togglePlayer();
   }
 
