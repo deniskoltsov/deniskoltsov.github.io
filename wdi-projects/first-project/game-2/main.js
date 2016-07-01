@@ -9,30 +9,79 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var question = document.querySelector('h4');
 
-  var headline = document.querySelector('h3')
+  var headline = document.querySelector('h3');
   var answer;
-
+  var image = document.querySelector('img');
   // CLICK ANSWER FUNTION
-  // function userAnswer(){
-  var scenes = {
 
-    one = {
+  var input = document.getElementById('input');
+  var yourname;
+  var scene = {};
 
+
+  input.onkeypress = function(event) {
+    if (event.key == "Enter") {
+      yourname = input.value;
+      console.log(yourname);
+      input.parentNode.removeChild(input)
+      advanceTo(scene.one)
     }
+  };
 
+  var advanceTo = function(s) {
+    changeImage(s.image)
+    changeText(s.text)
+    changeButtons(s.buttons)
+  };
+  //
+  // $( "button" ).click(function() {
+  //   var answer = $(this).text();
+  //   console.log(answer);
+  // });
+
+  var changeText = function(words) {
+    headline.innerHTML = words.replace("UserName", reverser(yourname));
+  };
+
+  var changeImage = function(img) {
+    image.style.backgroundImage = 'img';
+  };
+
+  var changeButtons = function(buttonList) {
+    buttonBox.innerHTML = "";
+    for (var i = 0; i < buttonList.length; i++) {
+      buttonBox.innerHTML += "<button onClick=" + buttonList[i][1] + ">" + buttonList[i][0] + "</button>";
+    };
+  };
+
+  function reverser(str) {
+    var revStr = "";
+    for (var i = 0; i < str.length; i++) {
+      revStr += str[str.length - 1 -i];
+    }
+    return revStr;
   }
-    $( "button" ).click(function() {
-      var answer = $(this).text();
-      console.log(answer);
-        if (answer == 'A') {
-          headline.innerHTML = 'Sorry, the code messed up so your name is set to Bob. Do you want to A or B?';
-        } else {
-          headline.innerHTML = 'Cool, your random name is Bob';
-        }
-    });
-  // }
 
 
+  var scene = {
+    one: {
+      image: 'images/eboy_workstation_2.gif',
+      text: "Oops sorry, something went wrong with the code, your name is now UserName. Welcome to programming, UserName.  ",
+      buttons: [
+        ["Option one", "advanceTo(scene.two)"],
+        ["Option two", "advanceTo(scene.three)"]
+      ]
+
+    },
+    two: {
+      image: "",
+      text: "blah blah",
+      buttons: [
+        ["Option one", "advanceTo(scenario.four)"],
+        ["Option two", "advanceTo(scenario.five)"]
+      ]
+    },
+  };
 
 
 });

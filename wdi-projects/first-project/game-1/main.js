@@ -13,15 +13,15 @@ document.addEventListener('DOMContentLoaded', function() {
   var currentPlayer = 0;
   var randomProblem;
   var actualAnswer;
-  var $currentCircle;
-  var answerArr = [1, 4];
-  var questionArr = ['(2*3)/6', '2+2'];
+  var currentCircle;
+  var answerArr = [1, 4, 7, 8, 12, 18, 22, 34, 35, 37, 44, 45, 50, 51, 56, 78, 81, 92, 99];
+  var questionArr = ['(2*3)/6', '2+2', '(30/2)-8', '2*2*2', '6*2', '(4*4)+2', '44/2', '100-66', '(35/5)+28', '(6*5)+7', '11*4', '90/2', '(100/4)*2', '(2*15)+(3*7)', '(6*9)+2', '((3*3)*2)+60', '9*9', '200-(100+8)', '((3*3)*9)+9+9'];
   var question = document.querySelector('#question')
   var container = document.getElementById('container');
   var boxColors = ['#4AD9D9', '#F5A503', '#F2385A', '#36B1BF', '#2E0927', '#A49A87', '#FF974F', '#BEDB39', '#FFE11A', '#004358', '#3498DB'];
 
-  // , 7, 8, 12, 18, 22, 34, 35, 37, 44, 45, 50, 51, 56, 78, 81, 92, 99
-  // , '(30/2)-8', '2*2*2', '6*2', '(4*4)+2', '44/2', '100-66', '(35/5)+28', '(6*5)+7', '11*4', '90/2', '(100/4)*2', '(2*15)+(3*7)', '(6*9)+2', '((3*3)*2)+60', '9*9', '200-(100+8)', '((3*3)*9)+9+9'
+
+
   //CALL MAKE CIRCLES
   makeCircles();
 
@@ -77,8 +77,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function checkAnswer() {
     //FINDS THE CURRENT CIRCLE THAT WAS CLICKED AND GETS THE VALUE FROM THE CIRCLE
-    $currentCircle = $(this);
-    var currentAnswer = parseInt($currentCircle.text());
+    currentCircle = $(this);
+    var currentAnswer = parseInt(currentCircle.text());
     console.log(randomProblem);
     console.log(currentAnswer);
 
@@ -92,21 +92,26 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function checkRemainingProblems () {
-    // check length of problems ARRAY
-    //IF NO MORE, RUN ENDGAME
-    if ($('#container').is(':empty')) {
+    if (($.trim($("#container").html())=='')) {
       endGame();
     }
   }
 
   function endGame () {
+    var h2 = document.createElement('h2');
     // COMPARE PLAYER SCORES AND ALERT WINNER
-    if (player1answers > player2answers) {
-      alert('player 1 wins')
-    } else if (player2answers > player1answers) {
-      alert('player 2 wins')
-    } else if (player1answers == player2answers) {
-      alert('I\'s a tie!')
+    if (player1answers.length > player2answers.length) {
+      $('h2').empty();
+      h2.appendChild(document.createTextNode('Player 1 Wins!'));
+      question.appendChild(h2);
+    } else if (player2answers.length > player1answers.length) {
+      $('h2').empty();
+      h2.appendChild(document.createTextNode('Player 2 Wins!'));
+      question.appendChild(h2);
+    } else if (player1answers.length == player2answers.length) {
+      $('h2').empty();
+      h2.appendChild(document.createTextNode('It\'s a tie!!'));
+      question.appendChild(h2);
     }
   }
 
@@ -115,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
     playersAnswers[currentPlayer].push(currentAnswer);
     players[currentPlayer].querySelector('.score').innerHTML = playersAnswers[currentPlayer].length;
     $('h2').remove();
-    $currentCircle.toggle('explode').remove();
+    currentCircle.toggle('explode').remove();
   }
 
   function markAnswerIncorrect () {
