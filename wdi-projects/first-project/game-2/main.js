@@ -66,10 +66,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var scene = {
     one: {
       image: 'images/eboy_workstation_2.gif',
-      text: "Oops sorry, something went wrong with the code, your name is now UserName. Welcome to programming, UserName.  ",
+      text: "Oops sorry, something went wrong with the code, your name is now UserName. Welcome to programming.  ",
       buttons: [
-        ["Option one", "advanceTo(scene.two)"],
-        ["Option two", "advanceTo(scene.three)"]
+        ["Option one", 'advanceTo(scene.two)'],
+        ["Option two", 'advanceTo(scene.three)']
       ]
 
     },
@@ -77,8 +77,8 @@ document.addEventListener('DOMContentLoaded', function() {
       image: "",
       text: "blah blah",
       buttons: [
-        ["Option one", "advanceTo(scenario.four)"],
-        ["Option two", "advanceTo(scenario.five)"]
+        ["Option one", "advanceTo(scene.four)"],
+        ["Option two", "advanceTo(scene.five)"]
       ]
     },
   };
